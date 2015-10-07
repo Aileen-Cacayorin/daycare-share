@@ -118,4 +118,13 @@ img {
 .teacher-img {
   width: 270px;
   height: 270px;
+
+/*edit-modal*/
+#ratiocolumn {
+  width: 40%;
+  float: left;
+}
+#certcolumn {
+  width: 40%;
+  float: right;
 }
