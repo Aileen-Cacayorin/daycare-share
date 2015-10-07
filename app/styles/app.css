@@ -44,8 +44,8 @@ li  {
 
 .map-display {
   margin: 20px auto;
-  height: 600px;
-  width: 900px;
+  height: 400px;
+  width: 600px;
 }
 
 .map {
@@ -105,4 +105,12 @@ img {
 }
 .carousel:hover .carousel-control {
   visibility: visible;
+}
+
+.daycare-listing {
+  text-align: left;
+}
+
+.thumbnail.daycare-list {
+  height: 12em;
 }

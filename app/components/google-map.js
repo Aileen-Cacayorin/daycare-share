@@ -77,11 +77,12 @@ export default Ember.Component.extend({
                         "<div class='fa fa-phone'> " + phone + "</div>"
                         );
         }
+        // debugger;
+        // this.$('.daycare-listing').append('<div class="test">test</div>');
+
       });
 
-      this.get('map').codeAddress(newMap, addressInput, addresses, radius);
-
-      this.get('map').setMarkers(newMap, addresses, contents);
+      this.get('map').displayMap(newMap, addressInput, addresses, radius, contents);
     }
   }
 });

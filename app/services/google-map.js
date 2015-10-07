@@ -9,7 +9,11 @@ export default Ember.Service.extend({
   center(latitude, longitude) {
     return new this.googleMaps.LatLng(latitude, longitude);
   },
-  codeAddress(map, origin, addresses, radius) {
+  displayMap(map, origin, addresses, radius, contents) {
+    var resultsFound = false;
+    var geocoder = new this.googleMaps.Geocoder();
+    var bounds = new google.maps.LatLngBounds();
+    var index = 0;
     var withinRadius = [];
     var service = new google.maps.DistanceMatrixService();
     service.getDistanceMatrix(
@@ -22,20 +26,62 @@ export default Ember.Service.extend({
       if (status === google.maps.DistanceMatrixStatus.OK) {
         var destinations = response.destinationAddresses;
 
-          var results = response.rows[0].elements;
-          for (var j = 0; j < results.length; j++) {
-            var element = results[j];
-            var distance = element.distance.value;
-            var to = destinations[j];
-            if (distance <= radius) {
-              withinRadius.push(to);
-            }
+        var results = response.rows[0].elements;
+        for (var j = 0; j < results.length; j++) {
+          var element = results[j];
+          var distance = element.distance.value;
+          var to = destinations[j];
+          if (distance <= radius) {
+            resultsFound = true;
+            geocoder.geocode( {'address': to}, function(results, status) {
+              if(status === google.maps.GeocoderStatus.OK) {
+                var marker = new google.maps.Marker({
+                  map: map,
+                  animation: google.maps.Animation.DROP,
+                  position: results[0].geometry.location
+                });
+                bounds.extend(marker.position);
+                map.fitBounds(bounds);
+
+                var infowindow = new google.maps.InfoWindow({
+                  content: contents[index]
+                });
+                index++;
+                marker.addListener('click', function() {
+                  infowindow.open(map, marker);
+                });
+              }
+              else {
+                alert("It didn't work because" + status);
+              }
+            });
           }
-        return withinRadius;
+        }
+
+        if(resultsFound === true) {
+          geocoder.geocode( {'address': origin}, function(results, status) {
+            if(status === google.maps.GeocoderStatus.OK) {
+              var homeMarker = new google.maps.Marker({
+                label:'A',
+                map: map,
+                animation: google.maps.Animation.DROP,
+                position: results[0].geometry.location
+              });
+              bounds.extend(homeMarker.position);
+              map.fitBounds(bounds);
+            }
+            else {
+              alert("It didn't work because" + status);
+            }
+          });
+        }
+        else {
+          alert("Sorry, there are no registered daycares in your area.");
+        }
       }
     });
   },
-  setMarkers(map, addresses, contents) {
+  setMarkers(map, contents, addresses) {
     var geocoder = new this.googleMaps.Geocoder();
     var bounds = new google.maps.LatLngBounds();
     var index = 0;
@@ -64,6 +110,7 @@ export default Ember.Service.extend({
       });
     });
   },
+
   autoComplete(input, options) {
     return new google.maps.places.Autocomplete(input, options);
   },
