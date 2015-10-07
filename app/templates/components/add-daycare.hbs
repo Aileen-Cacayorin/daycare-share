@@ -1,72 +1,61 @@
 
 <div class="container">
   <div class="row">
+    <div class="col-md-6 col-md-offset-3">
     <h3>Add your daycare:</h3>
     {{user.firstName}}
-    <form>
-      
-      <div class="form-group">
-        <label for="name"> Name:</label>
-        {{input value=name id='name'}}
-      </div>
-      <div class="form-group">
-        <label for="address"> Address:</label>
-        {{input value=address id='address'}}
-      </div>
-      <div class="form-group">
-        <label for="email"> Email:</label>
-        {{input value=email id='email'}}
-      </div>
-      <div class="form-group">
-        <label for="phone"> Phone:</label>
-        {{input value=phone id='phone'}}
-      </div>
-      <div class="form-group">
-        <label for="waitlist"> Waitlist:</label>
-        {{input value=waitlist id='waitlist' placeholder='Enter approx waitlist time'}}
-      </div>
-      <div class="form-group">
-        <label for="ratio"> Caregiver-to-Child Ratio:</label>
-        {{input value=ratio id='ratio' placeholder="Caregiver:Child"}}
-      </div>
-      <div class="form-group">
-        <label for="certifications">Certifications:</label>
-        {{textarea  value=certifications id='certifications'}}
-      </div>
-      <div class="form-group">
-        <label for="hours">Hours:</label>
-        {{input value=hours id='hours'}}
-      </div>
-      <div class="form-group">
-        <label for="mission">Mission:</label>
-        {{textarea  value=mission id='mission'}}
-      </div>
-      <div class="form-group">
-        <label for="description">Description:</label>
-        {{textarea value=description id='description'}}
-      </div>
-      <div class="form-group">
-        <label for="image2">Image 1:</label>
-        {{input value=image1 id='image1'}}
-      </div>
-      <div class="form-group">
-        <label for="image2">Image 2:</label>
-        {{input value=image2 id='image2'}}
-      </div>
-      <div class="form-group">
-        <label for="image3">Image 3:</label>
-        {{input value=image3 id='image3'}}
-      </div>
-      <div class="form-group">
-        <label for="image4">Image 4:</label>
-        {{input value=image4 id='image4'}}
-      </div>
-      <div class="form-group">
-        <label for="image5">Image 5:</label>
-        {{input value=image5 id='image5'}}
-      </div>
-      <button {{action 'addDaycare'}}>Add your daycare!</button>
-    </form>
+      <form>
+        <div class="form-group">
+          {{input class="form-control" value=name id='name' placeholder='Daycare Name'}}
+        </div>
+        <div class="form-group">
+          {{input class="form-control" value=address id='address' placeholder='Address'}}
+        </div>
+        <div class="form-group">
+          {{input class="form-control" value=email id='email' placeholder='Email'}}
+        </div>
+        <div class="form-group">
+          {{input class="form-control" value=phone id='phone' placeholder='Phone'}}
+        </div>
+        <div class="form-group">
+          {{input class="form-control" value=website id='website' placeholder='Website'}}
+        </div>
+        <div class="form-group">
+          {{input class="form-control" value=waitlist id='waitlist' placeholder='Enter Approx Wait Time'}}
+        </div>
+        <div class="form-group">
+          {{input class="form-control" value=ratio id='ratio' placeholder="Caregiver:Child"}}
+        </div>
+        <div class="form-group">
+          {{textarea class="form-control" value=certifications id='certifications' placeholder='Certifications'}}
+        </div>
+        <div class="form-group">
+          {{input class="form-control" value=hours id='hours' placeholder='Hours'}}
+        </div>
+        <div class="form-group">
+          {{textarea class="form-control" value=mission id='mission' placeholder='Mission'}}
+        </div>
+        <div class="form-group">
+          {{textarea class="form-control"value=description id='description' placeholder='Description'}}
+        </div>
+        <div class="form-group">
+          {{input class="form-control" value=image1 id='image1' placeholder='Image 1'}}
+        </div>
+        <div class="form-group">
+          {{input class="form-control" value=image2 id='image2' placeholder='Image 2'}}
+        </div>
+        <div class="form-group">
+          {{input class="form-control" value=image3 id='image3' placeholder='Image 3'}}
+        </div>
+        <div class="form-group">
+          {{input class="form-control" value=image4 id='image4' placeholder='Image 4'}}
+        </div>
+        <div class="form-group">
+          {{input class="form-control" value=image5 id='image5' placeholder='Image 5'}}
+        </div>
+        <button {{action 'addDaycare' placeholder=''}}>Add your daycare!</button>
+      </form>
+    </div>
   </div>
 </div>
 

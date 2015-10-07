@@ -22,26 +22,25 @@
   <div class="row">
     <div class="col-md-4 hero-feature">
       <div class="thumbnail">
-        <img src="http://www.kidzeewagholi.com/dots/images/daycare.jpg">
-        <h4>About Us</h4>
-        <p>We are the trusted daycare share in the nation.</p>
+        <img src="http://c4ccph.org/main/images/stories/icon_c4ccpartner.png">
+        <h4>Caregiver-to-Child Ratio:</h4>
+        <h5>{{model.ratio}}</h5>
       </div>
     </div>
     <div class="col-md-4 hero-feature">
       <div class="thumbnail">
-        <img src="http://1.bp.blogspot.com/-fpY8MWeSTi8/VHoo4x-O--I/AAAAAAAABg0/Row8caIR15E/s1600/Library%2BVisit%2BCollage.jpg">
+        <img src="http://blog.boostability.com/wp-content/uploads/2015/05/5-Apps-for-sales-communication.jpg">
         <h4>Contact Information:</h4>
         <li><i class="fa fa-home">: {{model.address}}</i></li>
         <li><i class="fa fa-envelope">: {{model.email}}</i></li>
         <li><i class="fa fa-phone">: {{model.phone}}</i></li>
         <li><i class="fa fa-calendar">: {{model.hours}}</i></li>
+        <li>{{model.website}}</li>
       </div>
     </div>
     <div class="col-md-4 hero-feature">
       <div class="thumbnail">
-        <img src="http://www.ellwooddaycare-osc.ca/wp-content/uploads/2014/08/Daycare4.jpg">
-        <h4>Caregiver-to-Child Ratio:</h4>
-        <p>{{model.ratio}}</p>
+        <img src="http://blog.boostability.com/wp-content/uploads/2015/05/Using-Google-Analytics.jpg">
         <h4>Certifications</h4>
         <p>{{model.certifications}}</p>
       </div>
@@ -51,12 +50,21 @@
 <hr>
 <div class="container">
   <h2>Our Classes</h2>
+  {{#if (eq session.uid model.user.id)}}
+    {{class-modal daycare=model addClass='addClass'}}
+  {{/if}}
+  {{#each model.classes as |class|}}
+    {{class-tile class=class}}
+  {{/each}}
 </div>
 <hr>
 <div class="container">
   <h2>Our Teachers</h2>
+    {{#if (eq session.uid model.user.id)}}
+      {{teacher-modal daycare=model addTeacher='addTeacher'}}
+    {{/if}}
+    {{#each model.teachers as |teacher|}}
+      {{teacher-tile teacher=teacher}}
+    {{/each}}
+
 </div>
-
-
-
-{{outlet}}

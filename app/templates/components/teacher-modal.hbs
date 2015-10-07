@@ -1,0 +1,56 @@
+<button type="button" class="btn btn-default" data-toggle="modal" data-target="#teacherModal">
+  Add a teacher
+</button>
+<br>
+<br>
+<br>
+
+<div class="modal fade" id="teacherModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="myModalLabel">Teacher Details</h4>
+      </div>
+      <div class="modal-body">
+        <form>
+          <div class="form-group">
+            <label for="name"> Name:</label>
+            {{input value=teacherName id='teacherName'}}
+          </div>
+          <div class="form-group">
+            <label for="education"> Education:</label>
+            {{input value=teacherEducation id='teacherEducation'}}
+          </div>
+          <div class="form-group">
+            <label for="experience"> Experience:</label>
+            {{textarea value=teacherExperience id='teacherExperience'}}
+          </div>
+          <div class="form-group">
+            <label for="about"> About:</label>
+            {{textarea value=teacherAbout id='teacherAbout'}}
+          </div>
+          <div class="form-group">
+            <label for="certifications"> Certifications:</label>
+            {{input value=teacherCertifications id='teacherCertifications'}}
+          </div>
+          <div class="form-group">
+            <label for="years"> Years at {{daycare.name}}:</label>
+            {{input value=teacherYears id='teacherYears'}}
+          </div>
+          <div class="form-group">
+            <label for="image">Image:</label>
+            {{input value=teacherImage id='teacherImage'}}
+          </div>
+
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary" {{action 'addTeacher' daycare}} data-dismiss="modal">Add Teacher</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+{{yield}}

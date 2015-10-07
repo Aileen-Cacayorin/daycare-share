@@ -119,4 +119,24 @@ img {
 .list-image {
   height: 120px;
   width: 160px;
+
+/*teachers  */
+.teacher {
+  float: left;
+  display: inline-block;
+
+}
+
+.teacher-img {
+  width: 270px;
+  height: 270px;
+
+/*edit-modal*/
+#ratiocolumn {
+  width: 40%;
+  float: left;
+}
+#certcolumn {
+  width: 40%;
+  float: right;
 }
