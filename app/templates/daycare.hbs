@@ -51,8 +51,11 @@
 <div class="container">
   <h2>Our Classes</h2>
   {{#if (eq session.uid model.user.id)}}
-  {{class-modal daycare=model addClass='addClass'}}
+    {{class-modal daycare=model addClass='addClass'}}
   {{/if}}
+  {{#each model.classes as |class|}}
+    {{class-tile class=class}}
+  {{/each}}
 </div>
 <hr>
 <div class="container">
