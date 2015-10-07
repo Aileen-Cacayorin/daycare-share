@@ -12,7 +12,7 @@ export default Ember.Component.extend({
         address: this.get('address'),
         email: this.get('email'),
         phone: this.get('phone'),
-        website: this.get('website')
+        website: this.get('website'),
         waitlist: this.get('waitlist'),
         ratio: this.get('ratio'),
         certifications: this.get('certifications'),
