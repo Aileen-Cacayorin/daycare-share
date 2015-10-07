@@ -1,9 +1,4 @@
 
-.map-display {
-  margin: 20px auto;
-  height: 600px;
-  width: 900px;
-}
 
 img {
   width: 460px;
@@ -20,9 +15,7 @@ li  {
   list-style-type: none;
 }
 
-.navLinks {
-  text-align: center;
-}
+/*navbar*/
 
 #daycare {
   color: #7EDFFF;
@@ -33,7 +26,8 @@ li  {
 
 #brand {
   color: #7EDFFF;
-  font-size: 1.5em;
+  font-size: 2em;
+  text-align: left;
 }
 /* Call to Action */
 
@@ -46,6 +40,13 @@ li  {
 }
 
 /* Map */
+
+
+.map-display {
+  margin: 20px auto;
+  height: 600px;
+  width: 900px;
+}
 
 .map {
     height: 250px;

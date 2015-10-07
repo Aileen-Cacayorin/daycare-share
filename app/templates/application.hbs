@@ -1,32 +1,32 @@
 <nav class="navbar navbar-default">
-  <div class="container">
-    <ul class="nav navbar-nav">
-      <li id="brand">{{#link-to 'index'}}<span id='daycare'>Daycare</span><span id='share'>Share</span>{{/link-to}}</li>
+  <div class="container-fluid">
+    <div class="nav navbar-nav navbar-left">
 
-      {{#if session.isAuthenticated}}
+      <li id="brand">{{#link-to 'index'}}<span id='daycare'>Daycare</span><span id='share'>Share </span><i class="fa fa-child"> </i><i class="fa fa-child"></i><i class="fa fa-child"></i>{{/link-to}}</li>
+    </div>
 
-        <li class="navLinks">{{#link-to 'new-daycare'}}<span class="glyphicon glyphicon-heart" aria-hidden="true"></span>Add Daycare{{/link-to}}</li>
-      {{/if}}
+      <div class="nav navbar-nav navbar-right">
 
+        {{#if session.isAuthenticated}}
+          <li>
+            <div class="btn-group">
+              <button class="btn btn-default dropdown-toggle btn btn btn-primary" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">My Daycares <span class="caret"></span></button>
+                <ul class="dropdown-menu">
+                  {{#each model.daycares as |daycare|}}
+                    <li>{{#link-to 'daycare' daycare.id}}{{daycare.name}}{{/link-to}}</li>
+                  {{/each}}
+                    <li>{{#link-to 'new-daycare'}}<span class="glyphicon glyphicon-heart" aria-hidden="true"></span>Add Daycare{{/link-to}}</li>
+                </ul>
+            </div></li>
+        {{/if}}
+        {{#if session.isAuthenticated}}
+          <li><<button class="btn btn-primary"{{action "signOut"}}>Sign out</button></li>
+        {{else}}
+        <li role="presentation">{{login-modal method="signUp" signUp="signUp" showExtras=true }}</li>
+        <li role="presentation">{{login-modal method="signIn" signIn="signIn" showExtras=false }}</li>
+        {{/if}}
+      </div>
 
-
-
-
-      <!-- {{#if (eq session.uid model.user.id)}}
-      <li class="navLinks">{{#link-to 'edit-daycare'}}<span class="glyphicon glyphicon-heart" aria-hidden="true"></span>Edit Daycare{{/link-to}}</li>
-      {{/if}} -->
-
-
-      {{#if session.isAuthenticated}}
-      <!-- Logged in as {{session.currentUser.displayName}}
-      {{#link-to 'user' session.content.uid}}<button>Your Profile</button>{{/link-to}} -->
-      <button {{action "signOut"}}>Sign out</button>
-      {{else}}
-      <li class="navLinks">{{login-modal method="signUp" signUp="signUp" showExtras=true}}</li>
-      <li class="navLinks">{{login-modal method="signIn" signIn="signIn" showExtras=false}}</li>
-      {{/if}}
-
-    </ul>
   </div>
 </nav>
 
