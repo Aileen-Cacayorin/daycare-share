@@ -44,8 +44,8 @@ li  {
 
 .map-display {
   margin: 20px auto;
-  height: 600px;
-  width: 900px;
+  height: 400px;
+  width: 600px;
 }
 
 .map {
@@ -107,6 +107,18 @@ img {
   visibility: visible;
 }
 
+.thumbnail.daycare-listing {
+  height: 150px;
+  text-align: left;
+}
+
+.thumbnail-content {
+  margin: 10px;
+}
+
+.list-image {
+  height: 120px;
+  width: 160px;
 
 /*teachers  */
 .teacher {
