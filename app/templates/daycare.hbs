@@ -1,4 +1,9 @@
 <center><h1>{{model.name}}</h1></center>
+<center><p>
+  {{#if (eq session.uid model.user.id)}}
+  {{edit-modal daycare=model saveChanges='saveChanges'}}
+  {{/if}}
+</p></center>
 {{daycare-carousel daycare=model}}
 <center><h2><i>"{{model.mission}}"</i></h2></center>
 <hr>
@@ -46,9 +51,5 @@
 
 
 
-{{#if (eq session.uid model.user.id)}}
-{{edit-modal daycare=model saveChanges='saveChanges'}}
-{{else}}
 
-{{/if}}
 {{outlet}}
