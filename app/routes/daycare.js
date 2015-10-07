@@ -15,6 +15,17 @@ export default Ember.Route.extend({
       });
       daycare.save();
       this.transitionTo('daycare');
+    },
+
+    addTeacher(params) {
+      var newTeacher = this.store.createRecord('teacher', params);
+      var daycare = params.daycare
+      daycare.get('teachers').addObject(newTeacher);
+      newTeacher.save().then(function(){
+        return daycare.save();
+      });
+      debugger;
+      this.transitionTo('daycare')
     }
   }
 
@@ -22,13 +33,3 @@ export default Ember.Route.extend({
 
 
 });
-
-// model() {
-//   return Ember.RSVP.hash({
-//     user: this.get("session").content.uid.then(function(user){
-//           return this.store.findRecord('user', sessionId);
-//     }),
-//
-//
-//
-//     }

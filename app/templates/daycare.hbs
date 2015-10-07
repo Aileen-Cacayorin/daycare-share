@@ -56,6 +56,9 @@
 <hr>
 <div class="container">
   <h2>Our Teachers</h2>
+    {{#if (eq session.uid model.user.id)}}
+      {{teacher-modal daycare=model addTeacher='addTeacher'}}
+    {{/if}}
 </div>
 
 
