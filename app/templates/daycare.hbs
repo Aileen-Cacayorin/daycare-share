@@ -35,6 +35,7 @@
         <li><i class="fa fa-envelope">: {{model.email}}</i></li>
         <li><i class="fa fa-phone">: {{model.phone}}</i></li>
         <li><i class="fa fa-calendar">: {{model.hours}}</i></li>
+        <li>{{model.website}}</li>
       </div>
     </div>
     <div class="col-md-4 hero-feature">
@@ -55,8 +56,10 @@
 <hr>
 <div class="container">
   <h2>Our Teachers</h2>
+    {{#if (eq session.uid model.user.id)}}
+      {{teacher-modal daycare=model addTeacher='addTeacher'}}
+    {{/if}}
+    {{#each model.teachers as |teacher|}}
+      {{teacher-tile teacher=teacher}}
+    {{/each}}
 </div>
-
-
-
-{{outlet}}
