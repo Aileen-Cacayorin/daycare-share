@@ -1,15 +1,8 @@
 
   <div class="col-md-4">
     <div class="teacher-tile">
-
-      <li>Name: {{teacher.name}}</li>
-      <li>Education: {{teacher.education}}</li>
-      <li>Experience: {{teacher.experience}}</li>
-      <li>About: {{teacher.about}}</li>
-      <li>Certifications: {{teacher.certifications}}</li>
-      <li>Years at: {{teacher.daycare.name}}{{teacher.years}}</li>
       <img class="teacher-img" src="{{teacher.image}}">
-
+        {{teacher-profile teacher=teacher}}
     </div>
   </div>
 
