@@ -33,6 +33,8 @@ export default Ember.Component.extend({
       this.$('.display-map').hide();
     },
     search(daycare) {
+      this.$('.thumbnail.daycare-listing').remove();
+
       var container = this.$('.map-display')[0];
       var options = {
         center: this.get('map').center(39.8282, -98.5795),
@@ -54,6 +56,7 @@ export default Ember.Component.extend({
       var phone;
       var description;
       var id;
+      var daycares = [];
 
       addressSplit = addressInput.split(' ');
       stateInput = addressSplit[addressSplit.length - 3];
@@ -72,6 +75,7 @@ export default Ember.Component.extend({
 
         if (state === stateInput) {
           addresses.push(address);
+          daycares.push(daycare);
           contents.push("<div><strong><a href='/daycare/" + id + "'>" + name + "</a></strong></div>" +
                         "<div class='fa fa-home'> " + address + "</div><br>" +
                         "<div class='fa fa-phone'> " + phone + "</div>"
@@ -82,7 +86,7 @@ export default Ember.Component.extend({
 
       });
 
-      this.get('map').displayMap(newMap, addressInput, addresses, radius, contents);
+      this.get('map').displayMap(newMap, addressInput, addresses, radius, contents, daycares);
     }
   }
 });

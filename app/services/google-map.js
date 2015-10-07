@@ -9,13 +9,14 @@ export default Ember.Service.extend({
   center(latitude, longitude) {
     return new this.googleMaps.LatLng(latitude, longitude);
   },
-  displayMap(map, origin, addresses, radius, contents) {
+  displayMap(map, origin, addresses, radius, contents, daycares) {
     var resultsFound = false;
     var geocoder = new this.googleMaps.Geocoder();
     var bounds = new google.maps.LatLngBounds();
     var index = 0;
     var withinRadius = [];
     var service = new google.maps.DistanceMatrixService();
+
     service.getDistanceMatrix(
     {
       origins: [origin],
@@ -46,10 +47,22 @@ export default Ember.Service.extend({
                 var infowindow = new google.maps.InfoWindow({
                   content: contents[index]
                 });
-                index++;
                 marker.addListener('click', function() {
                   infowindow.open(map, marker);
                 });
+
+                if(index % 2 === 0) {
+                  $('.list-col1').append('<div class="thumbnail daycare-listing">' +
+                  '<div>' + daycares[index].get('name') + '</div>' +
+
+                  '<img class="list-image" src=' + daycares[index].get('image1') + '>' +
+                  '</div>');
+                }
+                else {
+                  $('.list-col2').append('<div class="thumbnail daycare-listing">' + daycares[index].get('name') + '</div>');
+                }
+
+                index++;
               }
               else {
                 alert("It didn't work because" + status);
@@ -57,7 +70,7 @@ export default Ember.Service.extend({
             });
           }
         }
-
+        //display home marker if daycares within radius found
         if(resultsFound === true) {
           geocoder.geocode( {'address': origin}, function(results, status) {
             if(status === google.maps.GeocoderStatus.OK) {
@@ -81,36 +94,6 @@ export default Ember.Service.extend({
       }
     });
   },
-  setMarkers(map, contents, addresses) {
-    var geocoder = new this.googleMaps.Geocoder();
-    var bounds = new google.maps.LatLngBounds();
-    var index = 0;
-    addresses.forEach(function(address) {
-      geocoder.geocode( {'address': address}, function(results, status) {
-        if(status === google.maps.GeocoderStatus.OK) {
-          var marker = new google.maps.Marker({
-            map: map,
-            animation: google.maps.Animation.DROP,
-            position: results[0].geometry.location
-          });
-          bounds.extend(marker.position);
-          map.fitBounds(bounds);
-
-          var infowindow = new google.maps.InfoWindow({
-            content: contents[index]
-          });
-          index++;
-          marker.addListener('click', function() {
-            infowindow.open(map, marker);
-          });
-        }
-        else {
-          alert("It didn't work because" + status);
-        }
-      });
-    });
-  },
-
   autoComplete(input, options) {
     return new google.maps.places.Autocomplete(input, options);
   },
