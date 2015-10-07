@@ -59,8 +59,7 @@
     {{#if (eq session.uid model.user.id)}}
       {{teacher-modal daycare=model addTeacher='addTeacher'}}
     {{/if}}
+    {{#each model.teachers as |teacher|}}
+      {{teacher-tile teacher=teacher}}
+    {{/each}}
 </div>
-
-
-
-{{outlet}}
