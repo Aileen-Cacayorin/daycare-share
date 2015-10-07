@@ -11,10 +11,13 @@ export default Ember.Component.extend({
       this.$('.search-daycare').hide();
 
       var options = {
-        types: ['address']
+        types: ['address'],
+        componentRestrictions: {country: 'us'}
       };
-      this.get('map').autocomplete(this.get('address'), options);
 
+      var autocomplete = this.get('map').autoComplete((document.getElementById('address')), options);
+
+      this.get('map').listener(autocomplete);
   },
 
   actions: {
@@ -37,7 +40,7 @@ export default Ember.Component.extend({
       };
       var newMap = this.get('map').findMap(container, options);
 
-      var addressInput = this.get('address');
+      var addressInput = document.getElementById('address').val;
 
       var radius = this.get('selectedRadius');
       radius = radius * 1609.34;
@@ -53,12 +56,12 @@ export default Ember.Component.extend({
       var id;
 
       addressSplit = addressInput.split(' ');
-      stateInput = addressSplit[addressSplit.length - 2];
+      stateInput = addressSplit[addressSplit.length - 3];
       stateInput = stateInput.toLowerCase();
 
       //only get addresses in the state
       daycare.forEach(function(daycare) {
-        id = daycare.get('id')
+        id = daycare.get('id');
         address = daycare.get('address');
         name = daycare.get('name');
         phone = daycare.get('phone');
@@ -76,7 +79,7 @@ export default Ember.Component.extend({
         }
       });
 
-      var withinRadius = this.get('map').codeAddress(newMap, addressInput, addresses, radius);
+      this.get('map').codeAddress(newMap, addressInput, addresses, radius);
 
       this.get('map').setMarkers(newMap, addresses, contents);
     }

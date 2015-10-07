@@ -19,7 +19,7 @@ export default Ember.Service.extend({
       travelMode: google.maps.TravelMode.DRIVING
     }, function(response, status) {
 
-      if (status == google.maps.DistanceMatrixStatus.OK) {
+      if (status === google.maps.DistanceMatrixStatus.OK) {
         var destinations = response.destinationAddresses;
 
           var results = response.rows[0].elements;
@@ -41,7 +41,7 @@ export default Ember.Service.extend({
     var index = 0;
     addresses.forEach(function(address) {
       geocoder.geocode( {'address': address}, function(results, status) {
-        if(status == google.maps.GeocoderStatus.OK) {
+        if(status === google.maps.GeocoderStatus.OK) {
           var marker = new google.maps.Marker({
             map: map,
             animation: google.maps.Animation.DROP,
@@ -61,10 +61,16 @@ export default Ember.Service.extend({
         else {
           alert("It didn't work because" + status);
         }
-      })
+      });
     });
   },
-  autocomplete(input, options) {
-    return autocomplete = new google.maps.places.Autocomplete(input, options);
+  autoComplete(input, options) {
+    return new google.maps.places.Autocomplete(input, options);
+  },
+  listener(autocomplete) {
+    autocomplete.addListener('place_changed', function() {
+      var place = autocomplete.getPlace();
+      document.getElementById('address').val = place.formatted_address;
+    });
   }
 });
