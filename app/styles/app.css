@@ -106,3 +106,12 @@ img {
 .carousel:hover .carousel-control {
   visibility: visible;
 }
+/*edit-modal*/
+#ratiocolumn {
+  width: 40%;
+  float: left;
+}
+#certcolumn {
+  width: 40%;
+  float: right;
+}
