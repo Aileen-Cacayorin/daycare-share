@@ -6,9 +6,9 @@
     </div>
 
       <div class="nav navbar-nav navbar-right">
-        {{#if session.isAuthenticated}}
+        <!-- {{#if session.isAuthenticated}}
           <li>{{#link-to 'new-daycare'}}<span class="glyphicon glyphicon-heart" aria-hidden="true"></span>Add Daycare{{/link-to}}</li>
-        {{/if}}
+        {{/if}} -->
 
         {{#if session.isAuthenticated}}
           <li><<button class="btn btn-primary"{{action "signOut"}}>Sign out</button></li>
@@ -20,6 +20,7 @@
               {{#each model.daycares as |daycare|}}
                 <li>{{#link-to 'daycare' daycare.id}}{{daycare.name}}{{/link-to}}</li>
               {{/each}}
+              <li>{{#link-to 'new-daycare'}}<span class="glyphicon glyphicon-heart" aria-hidden="true"></span>Add Daycare{{/link-to}}</li>
             </ul>
         </div>
         {{else}}
