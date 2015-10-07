@@ -24,12 +24,21 @@ export default Ember.Route.extend({
       newTeacher.save().then(function(){
         return daycare.save();
       });
+
+      this.transitionTo('daycare')
+    },
+
+
+    addClass(params) {
+      var newClass = this.store.createRecord('class', params);
+      var daycare = params.daycare
+      daycare.get('classes').addObject(newClass);
+      newClass.save().then(function(){
+        return daycare.save();
+      });
       debugger;
       this.transitionTo('daycare')
     }
   }
-
-
-
 
 });

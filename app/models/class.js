@@ -6,6 +6,7 @@ export default DS.Model.extend({
   description: DS.attr(),
   image: DS.attr(),
   schedule: DS.attr(),
+  ratio: DS.attr(),
   daycare: DS.belongsTo('daycare', {async: true})
 
 });
