@@ -106,6 +106,19 @@ img {
 .carousel:hover .carousel-control {
   visibility: visible;
 }
+
+
+/*teachers  */
+.teacher {
+  float: left;
+  display: inline-block;
+
+}
+
+.teacher-img {
+  width: 270px;
+  height: 270px;
+
 /*edit-modal*/
 #ratiocolumn {
   width: 40%;

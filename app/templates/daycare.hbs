@@ -23,8 +23,8 @@
     <div class="col-md-4 hero-feature">
       <div class="thumbnail">
         <img src="http://c4ccph.org/main/images/stories/icon_c4ccpartner.png">
-        <h4>About Us</h4>
-        <p>We are the trusted daycare share in the nation.</p>
+        <h4>Caregiver-to-Child Ratio:</h4>
+        <h5>{{model.ratio}}</h5>
       </div>
     </div>
     <div class="col-md-4 hero-feature">
@@ -41,8 +41,6 @@
     <div class="col-md-4 hero-feature">
       <div class="thumbnail">
         <img src="http://blog.boostability.com/wp-content/uploads/2015/05/Using-Google-Analytics.jpg">
-        <h4>Caregiver-to-Child Ratio:</h4>
-        <p>{{model.ratio}}</p>
         <h4>Certifications</h4>
         <p>{{model.certifications}}</p>
       </div>
@@ -52,6 +50,9 @@
 <hr>
 <div class="container">
   <h2>Our Classes</h2>
+  {{#if (eq session.uid model.user.id)}}
+  {{class-modal daycare=model addClass='addClass'}}
+  {{/if}}
 </div>
 <hr>
 <div class="container">
@@ -62,4 +63,5 @@
     {{#each model.teachers as |teacher|}}
       {{teacher-tile teacher=teacher}}
     {{/each}}
+
 </div>
