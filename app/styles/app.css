@@ -107,15 +107,16 @@ img {
   visibility: visible;
 }
 
-.daycare-list {
+.thumbnail.daycare-listing {
+  height: 150px;
   text-align: left;
 }
 
-.thumbnail.daycare-listing {
-  height: 12em;
+.thumbnail-content {
+  margin: 10px;
 }
 
 .list-image {
-  height: 20px;
-  width: 30px;
+  height: 120px;
+  width: 160px;
 }

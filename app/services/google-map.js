@@ -16,12 +16,13 @@ export default Ember.Service.extend({
     var index = 0;
     var withinRadius = [];
     var service = new google.maps.DistanceMatrixService();
-
+    var distanceText = [];
     service.getDistanceMatrix(
     {
       origins: [origin],
       destinations: addresses,
-      travelMode: google.maps.TravelMode.DRIVING
+      travelMode: google.maps.TravelMode.DRIVING,
+      unitSystem: google.maps.UnitSystem.IMPERIAL
     }, function(response, status) {
 
       if (status === google.maps.DistanceMatrixStatus.OK) {
@@ -34,6 +35,7 @@ export default Ember.Service.extend({
           var to = destinations[j];
           if (distance <= radius) {
             resultsFound = true;
+            distanceText.push(element.distance.text);
             geocoder.geocode( {'address': to}, function(results, status) {
               if(status === google.maps.GeocoderStatus.OK) {
                 var marker = new google.maps.Marker({
@@ -52,14 +54,36 @@ export default Ember.Service.extend({
                 });
 
                 if(index % 2 === 0) {
-                  $('.list-col1').append('<div class="thumbnail daycare-listing">' +
-                  '<div>' + daycares[index].get('name') + '</div>' +
-
-                  '<img class="list-image" src=' + daycares[index].get('image1') + '>' +
+                  $('.list-col1').append(
+                  '<div class="thumbnail daycare-listing">' +
+                    '<div class="row">' +
+                      '<div class="col-xs-4 thumbnail-content">' +
+                        '<img class="list-image" src=' + daycares[index].get('image1') + '>' +
+                      '</div>' +
+                      '<div class="col-xs-6 thumbnail-content">' +
+                        '<div><strong><a href="/daycare/' + daycares[index].get('id') + '">'+ daycares[index].get('name') + '</a></strong></div>' +
+                        '<div><span class="fa fa-home"></span> ' + daycares[index].get('address') + '</div>' +
+                        '<div><span class="fa fa-phone"></span> ' + daycares[index].get('phone') + '</div>' +
+                        '<div class="fa fa-car"> ' + distanceText[index] + '</div>' +
+                      '</div>' +
+                    '</div>' +
                   '</div>');
                 }
                 else {
-                  $('.list-col2').append('<div class="thumbnail daycare-listing">' + daycares[index].get('name') + '</div>');
+                  $('.list-col2').append(
+                  '<div class="thumbnail daycare-listing">' +
+                    '<div class="row">' +
+                      '<div class="col-xs-4 thumbnail-content">' +
+                        '<img class="list-image" src=' + daycares[index].get('image1') + '>' +
+                      '</div>' +
+                      '<div class="col-xs-6 thumbnail-content">' +
+                        '<div><strong><a href="/daycare/' + daycares[index].get('id') + '">'+ daycares[index].get('name') + '</a></strong></div>' +
+                        '<div><span class="fa fa-home"></span> ' + daycares[index].get('address') + '</div>' +
+                        '<div><span class="fa fa-phone"></span> ' + daycares[index].get('phone') + '</div>' +
+                        '<div class="fa fa-car"> ' + distanceText[index] + '</div>' +
+                      '</div>' +
+                    '</div>' +
+                  '</div>');
                 }
 
                 index++;
