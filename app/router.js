@@ -10,6 +10,7 @@ Router.map(function() {
   this.route('new-daycare');
   this.route('user', {path: '/user/:user_id'});
   this.route('about', {});
+  this.route('privacy', {});
 });
 
 export default Router;
