@@ -88,9 +88,15 @@ li  {
 
 #daycare-header {
   color: #7EDFFF;
+  font-family: 'Montserrat', sans-serif;
 }
 #share-header {
   color: #990000;
+  font-family: 'Montserrat', sans-serif;
+}
+
+#welcome-to {
+  font-size: 40px;
 }
 
 
@@ -132,7 +138,9 @@ li  {
 
 /*searchbar*/
 #searchbar-row {
-  text-align: center;
+  margin-left: 30%;
+
+  margin-top: 20px;
 }
 
 
