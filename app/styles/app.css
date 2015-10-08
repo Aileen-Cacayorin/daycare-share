@@ -228,12 +228,17 @@ img {
 .teacher {
   float: left;
   display: inline-block;
-
 }
 
 .teacher-img {
   width: 270px;
   height: 270px;
+}
+
+.btn.btn-teacher {
+  border: none;
+  background: white;
+}
 
 /*add-modal*/
 #ratiocolumn {
