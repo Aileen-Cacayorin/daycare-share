@@ -29,11 +29,15 @@ li  {
   font-size: 2em;
   text-align: left;
 }
-
-.navLinks button {
-  border: none;
+.navLinks {
+  padding: 10px;
+  margin-right: 10px;
 }
 
+.nav-name {
+  margin: auto;
+  padding-top: 15px;
+}
 /* Call to Action */
 
 .call-to-action {

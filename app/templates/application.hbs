@@ -8,10 +8,10 @@
       <div class="nav navbar-nav navbar-right">
 
         {{#if session.isAuthenticated}}
-          <li>Logged in as {{model.firstName}}</li>
+          <li><div class="nav-name">Logged in as {{model.firstName}}</div></li>
           <li>
             <div class="btn-group">
-              <button class="btn btn-default dropdown-toggle btn btn btn-link" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">My Daycares <span class="caret"></span></button>
+              <div class="navLinks"><button class="btn btn-default dropdown-toggle btn btn btn-link" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">My Daycares <span class="caret"></span></button></div>
                 <ul class="dropdown-menu">
                   {{#each model.daycares as |daycare|}}
                     <li>{{#link-to 'daycare' daycare.id}}{{daycare.name}}{{/link-to}}</li>
@@ -22,7 +22,7 @@
             </div></li>
         {{/if}}
         {{#if session.isAuthenticated}}
-          <li><<button class="btn btn-link"{{action "signOut"}}>Sign out</button></li>
+          <li><div class="navLinks"><button class="btn btn-link"{{action "signOut"}}>Sign out</button></div></li>
         {{else}}
         <li><div class="navLinks">{{login-modal method="signUp" signUp="signUp" showExtras=true }}</div></li>
         <li><div class="navLinks">{{login-modal method="signIn" signIn="signIn" showExtras=false }}</div></li>
