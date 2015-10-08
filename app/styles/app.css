@@ -199,6 +199,30 @@ img {
 .list-image {
   height: 120px;
   width: 160px;
+}
+
+/*classes */
+.class-tile {
+  margin-left: 8%;
+  margin-right: 8%;
+}
+
+.class-name {
+  font-size: 1.5em;
+  font-weight: bold;
+}
+
+.class-image {
+  width: 100%;
+}
+
+.class-info {
+  text-align: left;
+}
+
+.class-spec {
+  color: gray;
+}
 
 /*teachers  */
 .teacher {
@@ -228,6 +252,5 @@ img {
   background-image: url('http://www.freebiesgallery.com/wp-content/uploads/2013/08/light-blue-background-2.jpg') no-repeat center center scroll !important;
   background-size: cover;
 }
-
 
 }
