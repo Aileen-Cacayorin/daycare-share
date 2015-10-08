@@ -77,4 +77,8 @@
     {{review-modal addReview='addReview' updateRating='updateRating' user=session.user daycare=model}}
   {{/if}}
 
+  {{#each model.reviews as |review|}}
+    {{review-tile review=review}}
+  {{/each}}
+
 </div>
