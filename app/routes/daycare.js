@@ -36,7 +36,6 @@ export default Ember.Route.extend({
       newClass.save().then(function(){
         return daycare.save();
       });
-      debugger;
       this.transitionTo('daycare')
     }
   }
