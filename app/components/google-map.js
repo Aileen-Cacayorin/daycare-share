@@ -76,17 +76,17 @@ export default Ember.Component.extend({
         if (state === stateInput) {
           addresses.push(address);
           daycares.push(daycare);
-          contents.push("<div><strong><a href='/daycare/" + id + "'>" + name + "</a></strong></div>" +
-                        "<div class='fa fa-home'> " + address + "</div><br>" +
-                        "<div class='fa fa-phone'> " + phone + "</div>"
-                        );
+          // contents.push("<div><strong><a href='/daycare/" + id + "'>" + name + "</a></strong></div>" +
+          //               "<div class='fa fa-home'> " + address + "</div><br>" +
+          //               "<div class='fa fa-phone'> " + phone + "</div>"
+          //               );
         }
         // debugger;
         // this.$('.daycare-listing').append('<div class="test">test</div>');
 
       });
 
-      this.get('map').displayMap(newMap, addressInput, addresses, radius, contents, daycares);
+      this.get('map').displayMap(newMap, addressInput, addresses, radius, daycares);
     }
   }
 });

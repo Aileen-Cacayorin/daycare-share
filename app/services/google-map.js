@@ -9,7 +9,8 @@ export default Ember.Service.extend({
   center(latitude, longitude) {
     return new this.googleMaps.LatLng(latitude, longitude);
   },
-  displayMap(map, origin, addresses, radius, contents, daycares) {
+  displayMap(map, origin, addresses, radius, daycares) {
+    var contents = [];
     var resultsFound = false;
     var geocoder = new this.googleMaps.Geocoder();
     var bounds = new google.maps.LatLngBounds();
@@ -17,6 +18,7 @@ export default Ember.Service.extend({
     var withinRadius = [];
     var service = new google.maps.DistanceMatrixService();
     var distanceText = [];
+    var daycareArrayPos = []; //used to keep track of daycares found within radius
     service.getDistanceMatrix(
     {
       origins: [origin],
@@ -33,10 +35,22 @@ export default Ember.Service.extend({
           var element = results[j];
           var distance = element.distance.value;
           var to = destinations[j];
+
           if (distance <= radius) {
             resultsFound = true;
+
+            daycareArrayPos.push(j);
+
+            contents.push("<div><strong><a href='/daycare/" + daycares[j].get('id') + "'>" + daycares[j].get('name') + "</a></strong></div>" +
+                          "<div class='fa fa-home'> " + daycares[j].get('address') + "</div><br>" +
+                          "<div class='fa fa-phone'> " + daycares[j].get('phone') + "</div>"
+                          );
+
             distanceText.push(element.distance.text);
+
             geocoder.geocode( {'address': to}, function(results, status) {
+              //callback not executed in for loop
+              //google service only sends geocode request
               if(status === google.maps.GeocoderStatus.OK) {
                 var marker = new google.maps.Marker({
                   map: map,
@@ -54,16 +68,17 @@ export default Ember.Service.extend({
                 });
 
                 if(index % 2 === 0) {
+                  debugger;
                   $('.list-col1').append(
                   '<div class="thumbnail daycare-listing">' +
                     '<div class="row">' +
                       '<div class="col-xs-4 thumbnail-content">' +
-                        '<img class="list-image" src=' + daycares[index].get('image1') + '>' +
+                        '<img class="list-image" src=' + daycares[daycareArrayPos[index]].get('image1') + '>' +
                       '</div>' +
                       '<div class="col-xs-6 thumbnail-content">' +
-                        '<div><strong><a href="/daycare/' + daycares[index].get('id') + '">'+ daycares[index].get('name') + '</a></strong></div>' +
-                        '<div><span class="fa fa-home"></span> ' + daycares[index].get('address') + '</div>' +
-                        '<div><span class="fa fa-phone"></span> ' + daycares[index].get('phone') + '</div>' +
+                        '<div><strong><a href="/daycare/' + daycares[daycareArrayPos[index]].get('id') + '">'+ daycares[daycareArrayPos[index]].get('name') + '</a></strong></div>' +
+                        '<div><span class="fa fa-home"></span> ' + daycares[daycareArrayPos[index]].get('address') + '</div>' +
+                        '<div><span class="fa fa-phone"></span> ' + daycares[daycareArrayPos[index]].get('phone') + '</div>' +
                         '<div class="fa fa-car"> ' + distanceText[index] + '</div>' +
                       '</div>' +
                     '</div>' +
@@ -74,12 +89,12 @@ export default Ember.Service.extend({
                   '<div class="thumbnail daycare-listing">' +
                     '<div class="row">' +
                       '<div class="col-xs-4 thumbnail-content">' +
-                        '<img class="list-image" src=' + daycares[index].get('image1') + '>' +
+                        '<img class="list-image" src=' + daycares[daycareArrayPos[index]].get('image1') + '>' +
                       '</div>' +
                       '<div class="col-xs-6 thumbnail-content">' +
-                        '<div><strong><a href="/daycare/' + daycares[index].get('id') + '">'+ daycares[index].get('name') + '</a></strong></div>' +
-                        '<div><span class="fa fa-home"></span> ' + daycares[index].get('address') + '</div>' +
-                        '<div><span class="fa fa-phone"></span> ' + daycares[index].get('phone') + '</div>' +
+                        '<div><strong><a href="/daycare/' + daycares[daycareArrayPos[index]].get('id') + '">'+ daycares[daycareArrayPos[index]].get('name') + '</a></strong></div>' +
+                        '<div><span class="fa fa-home"></span> ' + daycares[daycareArrayPos[index]].get('address') + '</div>' +
+                        '<div><span class="fa fa-phone"></span> ' + daycares[daycareArrayPos[index]].get('phone') + '</div>' +
                         '<div class="fa fa-car"> ' + distanceText[index] + '</div>' +
                       '</div>' +
                     '</div>' +
