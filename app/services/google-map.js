@@ -9,7 +9,8 @@ export default Ember.Service.extend({
   center(latitude, longitude) {
     return new this.googleMaps.LatLng(latitude, longitude);
   },
-  displayMap(map, origin, addresses, radius, contents, daycares) {
+  displayMap(map, origin, addresses, radius, daycares) {
+    var contents = [];
     var resultsFound = false;
     var geocoder = new this.googleMaps.Geocoder();
     var bounds = new google.maps.LatLngBounds();
@@ -39,6 +40,12 @@ export default Ember.Service.extend({
             resultsFound = true;
 
             daycareArrayPos.push(j);
+
+            contents.push("<div><strong><a href='/daycare/" + daycares[j].get('id') + "'>" + daycares[j].get('name') + "</a></strong></div>" +
+                          "<div class='fa fa-home'> " + daycares[j].get('address') + "</div><br>" +
+                          "<div class='fa fa-phone'> " + daycares[j].get('phone') + "</div>"
+                          );
+
             distanceText.push(element.distance.text);
 
             geocoder.geocode( {'address': to}, function(results, status) {
