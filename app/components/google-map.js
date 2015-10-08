@@ -76,6 +76,7 @@ export default Ember.Component.extend({
         if (state === stateInput) {
           addresses.push(address);
           daycares.push(daycare);
+        }
       });
 
       this.get('map').displayMap(newMap, addressInput, addresses, radius, daycares);
