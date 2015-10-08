@@ -1,14 +1,14 @@
 
 
 img {
-  width: 460px;
-  height: 308px;
+  width: 1200px;
+  max-height: 400px;
   margin: auto;
 }
 
 .carousel {
-  max-width: 50%;
-  margin: auto;
+  /*max-width: 50%;
+  margin: auto;*/
 }
 
 li  {
@@ -16,6 +16,12 @@ li  {
 }
 
 /*navbar*/
+.navbar   {
+  margin-bottom: 0px;
+}
+.navbar-default {
+  margin-bottom: 0px;
+}
 
 #daycare {
   color: #7EDFFF;
@@ -41,26 +47,29 @@ li  {
 
 /*header*/
 
-header {
-  width: 100%;
-  text-align: center;
+.jumbotron {
+  background-image:linear-gradient( rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7) ), url(http://www.babysignlanguage.com/wp-content/uploads/2015/03/children-at-daycare.jpg);
+  height: 600px;
+  margin-top: 0;
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+  opacity: 1;
+  margin-bottom: 0;
+  background-color: #777;
+  background-color : transparent;
   color: #fff;
-  background-attachment: scroll;
-  background-image: linear-gradient( rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7) ), url(https://pixabay.com/static/uploads/photo/2015/09/04/09/30/baby-921808_640.jpg);
-  background-position: center center;
-  background-repeat: none;
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  background-size: cover;
-  -o-background-size: cover;
+  max-height: 500px;
+
+
 }
 
-header .intro-text {
+
+.jumbotron .intro-text {
     padding-top: 100px;
-    padding-bottom: 50px;
+    padding-bottom: 125px;
 }
 
-header .intro-text .intro-lead-in {
+.jumbotron .intro-text .intro-lead-in {
     margin-bottom: 25px;
     font-family: "Droid Serif","Helvetica Neue",Helvetica,Arial,sans-serif;
     font-size: 22px;
@@ -68,7 +77,7 @@ header .intro-text .intro-lead-in {
     line-height: 22px;
 }
 
-header .intro-text .intro-heading {
+.jumbotron .intro-text .intro-heading {
     margin-bottom: 25px;
     text-transform: uppercase;
     font-family: Montserrat,"Helvetica Neue",Helvetica,Arial,sans-serif;
@@ -79,10 +88,18 @@ header .intro-text .intro-heading {
 
 #daycare-header {
   color: #7EDFFF;
+  font-family: 'Montserrat', sans-serif;
 }
 #share-header {
   color: #990000;
+  font-family: 'Montserrat', sans-serif;
 }
+
+#welcome-to {
+  font-size: 40px;
+}
+
+
 
 @media(min-width:768px) {
     header .intro-text {
@@ -90,7 +107,7 @@ header .intro-text .intro-heading {
         padding-bottom: 200px;
     }
 
-    header .intro-text .intro-lead-in {
+    .jumbotron .intro-text .intro-lead-in {
         margin-bottom: 25px;
         font-family: "Droid Serif","Helvetica Neue",Helvetica,Arial,sans-serif;
         font-size: 40px;
@@ -98,7 +115,7 @@ header .intro-text .intro-heading {
         line-height: 40px;
     }
 
-    header .intro-text .intro-heading {
+    .jumbotron .intro-text .intro-heading {
         margin-bottom: 50px;
         text-transform: uppercase;
         font-family: Montserrat,"Helvetica Neue",Helvetica,Arial,sans-serif;
@@ -118,6 +135,14 @@ header .intro-text .intro-heading {
 .call-to-action .btn {
     margin: 10px;
 }
+
+/*searchbar*/
+#searchbar-row {
+  margin-left: 30%;
+
+  margin-top: 20px;
+}
+
 
 /* Map */
 
@@ -199,17 +224,46 @@ img {
 .list-image {
   height: 120px;
   width: 160px;
+}
+
+/*classes */
+.class-tile {
+  margin-left: 8%;
+  margin-right: 8%;
+}
+
+.class-name {
+  font-size: 1.5em;
+  font-weight: bold;
+}
+
+.class-image {
+  width: 100%;
+}
+
+.class-info {
+  text-align: left;
+}
+
+.class-spec {
+  color: gray;
+}
 
 /*teachers  */
 .teacher {
   float: left;
   display: inline-block;
-
 }
 
 .teacher-img {
   width: 270px;
   height: 270px;
+}
+
+.btn.btn-teacher {
+  border: none;
+  background: white;
+}
 
 /*add-modal*/
 #ratiocolumn {

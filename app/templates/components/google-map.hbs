@@ -1,19 +1,23 @@
-<header>
+<div class="jumbotron">
+  <div class="container">
 
-  <div class="intro-text">
-        <div class="intro-heading">Welcome to <span id='daycare-header'>Daycare</span><span id='share-header'>Share </span><</div>
-        <div class="intro-lead-in">Find a daycare near you</div>
-        <button {{action 'showMap'}} class="btn btn-primary display-map">Find a Daycare</button>
+
+    <div class="intro-text">
+      <div class="intro-heading"><span id="welcome-to">Welcome to</span> <span id='daycare-header'>Daycare</span><span id='share-header'>Share </span><</div>
+      <div class="intro-lead-in">Find a daycare near you</div>
+      <button {{action 'showMap'}} class="btn btn-primary display-map">Find a Daycare</button>
+
+    </div>
 
   </div>
-</header>
+</div>
 
 
 
 
 
-
-<div class="row">
+<div class="searchbar">
+  <div class="row" id="searchbar-row">
   <div class="col-xs-2 search-daycare">
     <form class="form-inline">
     <label for="distance">Radius</label>
@@ -21,15 +25,19 @@
     </form>
   </div>
 
-  <div class="col-xs-5 search-daycare">
-    <div class="input-group">
-      {{input type="text" value=address id="address" class="form-control" placeholder="Enter Address"}}
-      <span class="input-group-btn">
-        <button {{action 'search' daycare}} class="btn btn-default" type="button">
-          <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
-        </button>
-      </span>
-    </div><!-- /input-group -->
+
+    <div class="col-xs-5 search-daycare">
+
+        <div class="input-group">
+          {{input type="text" value=address id="address" class="form-control" placeholder="Enter Address"}}
+          <span class="input-group-btn">
+            <button {{action 'search' daycare}} class="btn btn-default" type="button">
+              <span class="glyphicon glyphicon-search" aria-hidden="true">Search</span>
+            </button>
+          </span>
+        </div><!-- /input-group -->
+
+    </div>
   </div>
 </div>
 
