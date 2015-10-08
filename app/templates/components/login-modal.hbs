@@ -1,6 +1,8 @@
-<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#{{method}}">
-{{get-title method}}
-</button>
+<div class="navLinks">
+  <button type="button" class="btn btn-link" data-toggle="modal" data-target="#{{method}}">
+  {{get-title method}}
+  </button>
+</div>
 
 <div class="modal fade" id={{method}} tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
   <div class="modal-dialog" role="document">
@@ -20,10 +22,10 @@
               <label for="lastName">Last Name</label>
               {{input value=lastName class="form-control"}}
             </div>
-            <div class="form-group">
+            <!-- <div class="form-group">
               <label for="location">Location</label>
               {{input value=location class="form-control"}}
-            </div>
+            </div> -->
           {{/if}}
           <div class="form-group">
             <label for="email">Email</label>

@@ -43,7 +43,7 @@ export default Ember.Route.extend({
             lastName: params.lastName,
             email: params.email,
             uid: userData.uid,
-            location: params.location
+            // location: params.location
           });
         }
       });

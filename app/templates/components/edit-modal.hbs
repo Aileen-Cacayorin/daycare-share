@@ -9,8 +9,9 @@
         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
         <h4 class="modal-title" id="myModalLabel">Edit Daycare</h4>
       </div>
-      <div class="modal-body">
+      <div class="modal-body" id="edit-teacher">
         <form>
+          <div align="left">
           <div class="form-group">
             <label for="name"> Name</label>
             {{input class="form-control" id='name' value= daycare.name}}
@@ -29,7 +30,7 @@
           </div>
           <div class="form-group">
             <label for="phone"> Website:</label>
-            {{input id='website' value= daycare.website}}
+            {{input class="form-control" id='website' value= daycare.website}}
           </div>
           <div class="form-group">
             <label for="waitlist"> Waitlist</label>
@@ -41,7 +42,7 @@
           </div>
           <div class="form-group">
             <label for="certifications">Certifications:</label>
-            {{textarea  value=daycare.certifications id='certifications'}}
+            {{input class="form-control" value=daycare.certifications id='certifications'}}
           </div>
           <div class="form-group">
             <label for="hours">Hours</label>
@@ -50,11 +51,11 @@
           <div class="form-group">
 
             <label for="mission">Mission:</label>
-            {{textarea  value= daycare.mission id='mission'}}
+            {{textarea class="form-control" cols="60" rows="3" value= daycare.mission id='mission'}}
           </div>
           <div class="form-group">
             <label for="description">Description:</label>
-            {{textarea value=daycare.description id='description'}}
+            {{textarea class="form-control" cols="60" rows="10" value=daycare.description id='description'}}
           </div>
 
           <div class="form-group">
@@ -77,8 +78,10 @@
             <label for="image5">Image 5</label>
             {{input class="form-control" id='image5' value= daycare.image5}}
           </div>
+          </div>
         </form>
       </div>
+
       <div class="modal-footer">
         <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
         <button type="button" class="btn btn-primary" {{action 'saveChanges' daycare}} data-dismiss="modal">Save changes</button>
