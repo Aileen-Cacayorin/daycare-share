@@ -37,6 +37,21 @@ export default Ember.Route.extend({
         return daycare.save();
       });
       this.transitionTo('daycare')
+    },
+
+    addReview(params) {
+      debugger;
+      var newReview = this.store.createRecord('review', params);
+      var daycare = params.daycare
+      daycare.get('reviews').addObject(newReview);
+      var user = params.user
+      user.get('reviews').addObject(newReview)
+      newReview.save().then(function(){
+        user.save();
+        return daycare.save();
+      });
+      debugger;
+      this.transitionTo('daycare')
     }
   }
 

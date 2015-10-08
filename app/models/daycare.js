@@ -19,5 +19,6 @@ export default DS.Model.extend({
   image5: DS.attr(),
   teachers: DS.hasMany('teacher', {async: true}),
   classes: DS.hasMany('class', {async: true}),
-  user: DS.belongsTo('user', {async: true})
+  user: DS.belongsTo('user', {async: true}),
+  reviews: DS.hasMany('review', {async: true})
 });

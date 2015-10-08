@@ -105,9 +105,9 @@ li  {
   font-family: 'Montserrat', sans-serif;
 }
 
-#welcome-to {
+/*#welcome-to {
   font-size: 40px;
-}
+}*/
 
 
 
@@ -303,5 +303,6 @@ img {
   background-image: url('http://www.freebiesgallery.com/wp-content/uploads/2013/08/light-blue-background-2.jpg') no-repeat center center scroll !important;
   background-size: cover;
 }
-
-}
+ #footer-body {
+   text-align: center;
+ }
