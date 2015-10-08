@@ -9,8 +9,9 @@
         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
         <h4 class="modal-title" id="myModalLabel">Edit Daycare</h4>
       </div>
-      <div class="modal-body">
+      <div class="modal-body" id="edit-teacher">
         <form>
+          <div align="left">
           <div class="form-group">
             <label for="name"> Name</label>
             {{input class="form-control" id='name' value= daycare.name}}
@@ -77,13 +78,15 @@
             <label for="image5">Image 5</label>
             {{input class="form-control" id='image5' value= daycare.image5}}
           </div>
+          </div>
         </form>
+      </div>
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
         <button type="button" class="btn btn-primary" {{action 'saveChanges' daycare}} data-dismiss="modal">Save changes</button>
       </div>
     </div>
-  </div>
+  
 </div>
 {{yield}}

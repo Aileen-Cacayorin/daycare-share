@@ -10,20 +10,21 @@
         {{#if session.isAuthenticated}}
           <li>
             <div class="btn-group">
-              <button class="btn btn-default dropdown-toggle btn btn btn-primary" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">My Daycares <span class="caret"></span></button>
+              <button class="btn btn-default dropdown-toggle btn btn btn-default" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">My Daycares <span class="caret"></span></button>
                 <ul class="dropdown-menu">
                   {{#each model.daycares as |daycare|}}
                     <li>{{#link-to 'daycare' daycare.id}}{{daycare.name}}{{/link-to}}</li>
                   {{/each}}
-                    <li>{{#link-to 'new-daycare'}}<span class="glyphicon glyphicon-heart" aria-hidden="true"></span>Add Daycare{{/link-to}}</li>
+                  <li role="separator" class="divider"></li>
+                  <li>{{#link-to 'new-daycare'}}<span class="glyphicon glyphicon-heart" aria-hidden="true"></span> Add Daycare{{/link-to}}</li>
                 </ul>
             </div></li>
         {{/if}}
         {{#if session.isAuthenticated}}
-          <li><<button class="btn btn-primary"{{action "signOut"}}>Sign out</button></li>
+          <li><<button class="btn btn-default"{{action "signOut"}}>Sign out</button></li>
         {{else}}
-        <li role="presentation">{{login-modal method="signUp" signUp="signUp" showExtras=true }}</li>
-        <li role="presentation">{{login-modal method="signIn" signIn="signIn" showExtras=false }}</li>
+        <li><div class="navLinks">{{login-modal method="signUp" signUp="signUp" showExtras=true }}</div></li>
+        <li><div class="navLinks">{{login-modal method="signIn" signIn="signIn" showExtras=false }}</div></li>
         {{/if}}
       </div>
 
