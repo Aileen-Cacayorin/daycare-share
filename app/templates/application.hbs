@@ -11,14 +11,14 @@
           <li><div class="nav-name">Logged in as {{model.firstName}}</div></li>
           <li>
             <div class="btn-group">
-              <div class="navLinks"><button class="btn btn-default dropdown-toggle btn btn btn-link" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">My Daycares <span class="caret"></span></button></div>
+              <div class="navLinks"><button class="btn btn-default dropdown-toggle btn btn btn-link" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">My Daycares <span class="caret"></span></button>
                 <ul class="dropdown-menu">
                   {{#each model.daycares as |daycare|}}
                     <li>{{#link-to 'daycare' daycare.id}}{{daycare.name}}{{/link-to}}</li>
                   {{/each}}
                   <li role="separator" class="divider"></li>
                   <li>{{#link-to 'new-daycare'}}<span class="glyphicon glyphicon-heart" aria-hidden="true"></span> Add Daycare{{/link-to}}</li>
-                </ul>
+                </ul></div>
             </div></li>
         {{/if}}
         {{#if session.isAuthenticated}}
