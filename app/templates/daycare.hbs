@@ -74,7 +74,7 @@
 <div class="container">
   <h2>Reviews</h2>
   {{#if session.isAuthenticated}}
-    {{review-modal saveReview='saveReview' user=session.user daycare=model}}
+    {{review-modal addReview='addReview' updateRating='updateRating' user=session.user daycare=model}}
   {{/if}}
 
 </div>
