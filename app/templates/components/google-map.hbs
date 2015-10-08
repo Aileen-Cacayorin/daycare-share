@@ -21,16 +21,17 @@
     </form>
   </div>
 
-  <div class="col-xs-5 search-daycare">
-    <div class="input-group">
-      {{input type="text" value=address id="address" class="form-control" placeholder="Enter Address"}}
-      <span class="input-group-btn">
-        <button {{action 'search' daycare}} class="btn btn-default" type="button">
-          <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
-        </button>
-      </span>
-    </div><!-- /input-group -->
-  </div>
+
+    <div class="col-xs-5 search-daycare">
+      <div class="input-group">
+        {{input type="text" value=address id="address" class="form-control" placeholder="Enter Address"}}
+        <span class="input-group-btn">
+          <button {{action 'search' daycare}} class="btn btn-default" type="button">
+            <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+          </button>
+        </span>
+      </div><!-- /input-group -->
+    </div>
 </div>
 
 <div id="search-results">
