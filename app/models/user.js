@@ -5,7 +5,7 @@ export default DS.Model.extend({
   lastName: DS.attr(),
   email: DS.attr(),
   uid: DS.attr(),
-  location: DS.attr(),
-  avatar: DS.attr(),
+  // location: DS.attr(),
+  // avatar: DS.attr(),
   daycares: DS.hasMany('daycare', {async: true})
 });

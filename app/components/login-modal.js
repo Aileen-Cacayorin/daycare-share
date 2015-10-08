@@ -14,7 +14,7 @@ export default Ember.Component.extend({
       var params = {
         firstName: this.get('firstName'),
         lastName: this.get('lastName'),
-        location: this.get('location'),
+        // location: this.get('location'),
         email: this.get('email'),
         password: this.get('password')
       };
