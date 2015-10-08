@@ -1,14 +1,14 @@
 
 
 img {
-  width: 460px;
-  height: 308px;
+  width: 1200px;
+  max-height: 400px;
   margin: auto;
 }
 
 .carousel {
-  max-width: 50%;
-  margin: auto;
+  /*max-width: 50%;
+  margin: auto;*/
 }
 
 li  {
@@ -130,8 +130,10 @@ li  {
     margin: 10px;
 }
 
-
-
+/*searchbar*/
+#searchbar-row {
+  text-align: center;
+}
 
 
 /* Map */
