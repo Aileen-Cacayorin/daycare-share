@@ -1,13 +1,48 @@
-<div class="col-md-4">
+
+<div class="col-xs-6">
   <div class="class-tile">
-    {{class.name}}
-    <img src={{class.image}}>
-    <li>Ages: {{class.ages}}</li>
-    <li>Description: {{class.description}}</li>
-    <li>Schedule: {{class.schedule}}</li>
-    <li>Child-to-Caregiver Ratio: {{class.ratio}}</li>
+    <div class="class-name">
+      {{class.name}}
+    </div>
+    <div class="class-image">
+      <img src={{class.image}} class="class-image">
+    </div>
+
+    <div class="class-info">
+      <div class="row">
+        <div class="col-xs-3 class-spec">
+          <li>Ages: </li>
+        </div>
+        <div class="col-xs-9">
+          <li>{{class.ages}}</li>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-xs-3 class-spec">
+          <li>Description:</li>
+        </div>
+        <div class="col-xs-9">
+          <li>{{class.description}}</li>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-xs-3 class-spec">
+          <li>Schedule:</li>
+        </div>
+        <div class="col-xs-9">
+          <li>{{class.schedule}}</li>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-xs-3 class-spec">
+          <li>Staff Ratio:</li>
+        </div>
+        <div class="col-xs-9">
+          <li>{{class.ratio}}</li>
+        </div>
+      </div>
+    </div>
   </div>
 </div>
-
 
 {{yield}}
