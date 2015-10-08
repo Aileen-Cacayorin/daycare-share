@@ -37,7 +37,6 @@ export default Ember.Route.extend({
           console.log("Error creating user:", error);
         } else {
           console.log("Successfully created user account with uid:", userData.uid);
-          debugger;
           self.get('firebase').child("users").child(userData.uid).set({
             firstName: params.firstName,
             lastName: params.lastName,

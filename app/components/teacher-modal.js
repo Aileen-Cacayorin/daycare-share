@@ -13,7 +13,6 @@ export default Ember.Component.extend({
         image: this.get('teacherImage'),
         daycare: this.get('daycare')
       }
-      debugger;
       this.sendAction('addTeacher', params)
     }
   }

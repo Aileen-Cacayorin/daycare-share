@@ -68,7 +68,6 @@ export default Ember.Service.extend({
                 });
 
                 if(index % 2 === 0) {
-                  debugger;
                   $('.list-col1').append(
                   '<div class="thumbnail daycare-listing">' +
                     '<div class="row">' +
