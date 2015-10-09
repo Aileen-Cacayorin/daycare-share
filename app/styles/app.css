@@ -64,9 +64,9 @@ li  {
 
 }
 
-.jumbotron-sign-in {
+/*.jumbotron-sign-in {
   margin: auto;
-}
+}*/
 /*.intro-heading #welcome-to,
 .intro-heading #daycare-header,
 .intro-heading #share-header
@@ -75,7 +75,7 @@ li  {
 }*/
 
 .jumbotron .intro-text {
-    padding-top: 100px;
+    padding-top: 50px;
     padding-bottom: 125px;
 }
 
@@ -83,11 +83,11 @@ li  {
     margin-bottom: 25px;
     font-family: "Droid Serif","Helvetica Neue",Helvetica,Arial,sans-serif;
     font-size: 22px;
-    font-style: italic;
     line-height: 22px;
 }
 
 .jumbotron .intro-text .intro-heading {
+
     margin-bottom: 25px;
     text-transform: uppercase;
     font-family: Montserrat,"Helvetica Neue",Helvetica,Arial,sans-serif;
@@ -105,9 +105,15 @@ li  {
   font-family: 'Montserrat', sans-serif;
 }
 
-/*#welcome-to {
-  font-size: 40px;
-}*/
+.sign-up {
+  margin-top: 20px;
+  margin-bottom: 20px;
+  font-family: "Droid Serif","Helvetica Neue",Helvetica,Arial,sans-serif;
+  font-size: 15px;
+  line-height: 15px;
+
+
+}
 
 
 
@@ -121,7 +127,6 @@ li  {
         margin-bottom: 25px;
         font-family: "Droid Serif","Helvetica Neue",Helvetica,Arial,sans-serif;
         font-size: 40px;
-        font-style: italic;
         line-height: 40px;
     }
 
