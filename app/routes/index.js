@@ -5,6 +5,6 @@ export default Ember.Route.extend({
   return this.get("session").fetch().catch(function() {});
   },
   model() {
-    return this.store.findAll('daycare', 'user');
+    return this.store.findAll('daycare');
   },
 });
