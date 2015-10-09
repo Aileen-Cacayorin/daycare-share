@@ -1,7 +1,7 @@
 # Daycare
-09/08/2015
+#####09/08/2015
 
-###By: Aileen Cacayorin, Janice Laset-Parkerson, Brian Lau, and Jing Zhao Wait
+####By: Aileen Cacayorin, Janice Laset-Parkerson, Brian Lau, and Jing Zhao Wait
 
 DaycareShare is a web app that allows users to add and search for daycares. Users can create a user account, login, add a daycare and create a profile for their daycare. Users can search for nearby daycares that have been added to DaycareShare. Additionally, users can edit their daycare info and add class profiles and teacher profiles to their daycare profile.
 
@@ -52,3 +52,27 @@ Specify what it takes to deploy your app.
 * Development Browser Extensions
   * [ember inspector for chrome](https://chrome.google.com/webstore/detail/ember-inspector/bmdblncegkenkacieihfhpjfppoconhi)
   * [ember inspector for firefox](https://addons.mozilla.org/en-US/firefox/addon/ember-inspector/)
+
+  ### Legal
+
+Copyright (c) 2015 **Aileen Cacayorin & Janice Laset-Parkerson**
+
+This software is licensed under the MIT license.
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in
+all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+THE SOFTWARE.
