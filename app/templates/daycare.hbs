@@ -73,6 +73,9 @@
 
 <div class="container">
   <h2>Reviews</h2>
+  {{#if (eq session.isAuthenticated false)}}
+    Sign in to add a review
+  {{/if}}
   {{#if session.isAuthenticated}}
     {{review-modal addReview='addReview' updateRating='updateRating' user=session.user daycare=model}}
   {{/if}}
