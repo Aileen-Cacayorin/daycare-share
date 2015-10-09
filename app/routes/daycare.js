@@ -18,6 +18,12 @@ export default Ember.Route.extend({
     },
 
     addTeacher(params) {
+      Object.keys(params).forEach(function(key){
+        if(params[key] === undefined) {
+          alert("Please fill in all form fields");
+          this.transitionTo('daycare');
+        }
+      });
       var newTeacher = this.store.createRecord('teacher', params);
       var daycare = params.daycare
       daycare.get('teachers').addObject(newTeacher);
@@ -30,6 +36,12 @@ export default Ember.Route.extend({
 
 
     addClass(params) {
+      Object.keys(params).forEach(function(key){
+        if(params[key] === undefined) {
+          alert("Please fill in all form fields");
+          this.transitionTo('daycare');
+        }
+      });
       var newClass = this.store.createRecord('class', params);
       var daycare = params.daycare
       daycare.get('classes').addObject(newClass);
@@ -40,7 +52,12 @@ export default Ember.Route.extend({
     },
 
     addReview(params) {
-      debugger;
+      Object.keys(params).forEach(function(key){
+        if(params[key] === undefined) {
+          alert("Please fill in all form fields");
+          this.transitionTo('daycare');
+        }
+      });
       var newReview = this.store.createRecord('review', params);
       var daycare = params.daycare
       daycare.get('reviews').addObject(newReview);
