@@ -27,7 +27,6 @@ export default Ember.Component.extend({
         user: this.get('user')
 
       }
-
       this.sendAction('addDaycare', params);
       username: this.set('');
       password: this.set('');
