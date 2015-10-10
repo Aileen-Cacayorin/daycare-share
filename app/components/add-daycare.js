@@ -9,7 +9,7 @@ export default Ember.Component.extend({
         // username: this.get('username'),
         // password: this.get('password'),
         name: this.get('name'),
-        address: this.get('address'),
+        address: this.get('streetAddress') + " " +  this.get('city') + " " + this.get('state') + " " + this.get('zipcode'),
         email: this.get('email'),
         phone: this.get('phone'),
         website: this.get('website'),

@@ -10,12 +10,12 @@ export default Ember.Route.extend({
 
     addDaycare(params) {
       Object.keys(params).forEach(function(key){
-
+        var placeholder = " "
         if(params[key] === undefined) {
-          alert("Please fill in all form fields");
-          this.transitionTo('new-daycare');
+          params[key] = placeholder;
         }
       });
+      debugger;
       var newDaycare = this.store.createRecord('daycare', params);
       var user = params.user
       user.get('daycares').addObject(newDaycare);
