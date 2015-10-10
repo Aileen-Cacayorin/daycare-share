@@ -1,10 +1,10 @@
 <div class="container">
-    <div class="row">
-      <div class="col-md-6 col-md-offset-3">
-        <h2>Register</h2>
-        <br>
-        {{user.firstName}}
-        <form>
+  <div class="row">
+    <div class="col-md-6 col-md-offset-3">
+      <h2>Register</h2>
+      <br>
+      {{user.firstName}}
+      <form>
           <div class="well">
             <div align="left">
               <h4>Contact</h4>
@@ -14,7 +14,69 @@
               {{input class="form-control" value=name id='name' placeholder='Daycare Name'}}
             </div>
             <div class="form-group">
-              {{input class="form-control" value=address id='address' placeholder='Address'}}
+              {{input class="form-control" value=streetAddress id='streetAddress' placeholder=' Street '}}
+            </div>
+            <div class="form-group">
+              {{input class="form-control" value=city id='city' placeholder=' City'}}
+            </div>
+            <div class="form-group">
+              {{#x-select value=state id="state"}}
+                <option disabled="disabled" selected="selected">State</option>
+                {{#x-option value="AL"}}AL{{/x-option}}
+                {{#x-option value="AR"}}AR{{/x-option}}
+                {{#x-option value="AK"}}AK{{/x-option}}
+                {{#x-option value="AZ"}}AZ{{/x-option}}
+                {{#x-option value="CA"}}CA{{/x-option}}
+                {{#x-option value="CO"}}CO{{/x-option}}
+                {{#x-option value="CT"}}CT{{/x-option}}
+                {{#x-option value="DC"}}DC{{/x-option}}
+                {{#x-option value="DE"}}DE{{/x-option}}
+                {{#x-option value="FL"}}FL{{/x-option}}
+                {{#x-option value="GA"}}GA{{/x-option}}
+                {{#x-option value="HI"}}HI{{/x-option}}
+                {{#x-option value="IA"}}IA{{/x-option}}
+                {{#x-option value="ID"}}ID{{/x-option}}
+                {{#x-option value="IL"}}IL{{/x-option}}
+                {{#x-option value="IN"}}IN{{/x-option}}
+                {{#x-option value="KS"}}KS{{/x-option}}
+                {{#x-option value="KY"}}KY{{/x-option}}
+                {{#x-option value="LA"}}LA{{/x-option}}
+                {{#x-option value="MA"}}MA{{/x-option}}
+                {{#x-option value="MD"}}MD{{/x-option}}
+                {{#x-option value="ME"}}ME{{/x-option}}
+                {{#x-option value="MI"}}MI{{/x-option}}
+                {{#x-option value="MN"}}MN{{/x-option}}
+                {{#x-option value="MO"}}MO{{/x-option}}
+                {{#x-option value="MS"}}MS{{/x-option}}
+                {{#x-option value="MT"}}MT{{/x-option}}
+                {{#x-option value="NC"}}NC{{/x-option}}
+                {{#x-option value="ND"}}ND{{/x-option}}
+                {{#x-option value="NE"}}NE{{/x-option}}
+                {{#x-option value="NH"}}NH{{/x-option}}
+                {{#x-option value="NJ"}}NJ{{/x-option}}
+                {{#x-option value="NM"}}NM{{/x-option}}
+                {{#x-option value="NV"}}NV{{/x-option}}
+                {{#x-option value="NY"}}NY{{/x-option}}
+                {{#x-option value="OH"}}OH{{/x-option}}
+                {{#x-option value="OK"}}OK{{/x-option}}
+                {{#x-option value="OR"}}OR{{/x-option}}
+                {{#x-option value="PA"}}PA{{/x-option}}
+                {{#x-option value="RI"}}RI{{/x-option}}
+                {{#x-option value="SC"}}SC{{/x-option}}
+                {{#x-option value="SD"}}SD{{/x-option}}
+                {{#x-option value="TN"}}TN{{/x-option}}
+                {{#x-option value="TX"}}TX{{/x-option}}
+                {{#x-option value="UT"}}UT{{/x-option}}
+                {{#x-option value="VA"}}VA{{/x-option}}
+                {{#x-option value="VT"}}VT{{/x-option}}
+                {{#x-option value="WA"}}WA{{/x-option}}
+                {{#x-option value="WI"}}WI{{/x-option}}
+                {{#x-option value="WV"}}WV{{/x-option}}
+                {{#x-option value="WY"}}WY{{/x-option}}
+              {{/x-select}}
+            </div>
+            <div class="form-group">
+              {{input class="form-control" value=zipcode id='zipcode' placeholder=' Zipcode '}}
             </div>
             <div class="form-group">
               {{input class="form-control" value=email id='email' placeholder='Email'}}
@@ -70,8 +132,8 @@
             </div>
             <button class="btn btn-primary"{{action 'addDaycare' placeholder=''}}>Add your daycare!</button>
           </div>
-        </form>
-      </div>
+      </form>
+    </div>
   </div>
 </div>
 
